@@ -1,33 +1,28 @@
-const http = require('http');
+const http = require("http");
 
 http.createServer(router).listen(3000);
 
 function router(req, res) {
-    console.log('Nueva petición!');
-    console.log(req.url);
+  console.log("Nueva petición!");
+  console.log(req.url);
 
-    switch (req.url) {
-        case '/hola':
-            let saludo = hola();
-            res.write(saludo);
-            res.end();
-            break;
-        
-        default:
-            res.write('Error 404: No se lo que quieres');
-            res.end();
-    }
+  switch (req.url) {
+    case "/hola":
+      res.write("Hola perritopoo");
+      res.end();
+      break;
 
-    // res.writeHead(201, { 'Content-Type': 'text/plain' })
+    default:
+      res.write("Error 404: No se lo que quieres");
+      res.end();
+  }
 
-    // // Escribir respuesta al usuario
-    // res.write('Hola, ya se usar HTTP de NodeJS');
+  // res.writeHead(201, { 'Content-Type': 'text/plain' })
 
-    // res.end();
-}
+  // // Escribir respuesta al usuario
+  // res.write('Hola, ya se usar HTTP de NodeJS');
 
-function hola() {
-    return 'Hola, que tal';
+  // res.end();
 }
 
 console.log("Escuchando http en el puerto 3000");

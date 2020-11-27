@@ -1,32 +1,27 @@
-console.time('todo');
+// Asi Puedes ver cuando tiempo tarda en ejecutarse una operacion
+// console.time("todo");
+// console.timeEnd("todo");
+
 let suma = 0;
-console.time('bucle');
-for (let i = 0; i < 100000000; i++) {
-    suma += 1;
+console.time("bucle");
+for (let i = 0; i < 1000000000; i++) {
+  suma += 1;
 }
-console.timeEnd('bucle');
+console.timeEnd("bucle");
 
-let suma2 = 0;
-console.time('bucle 2');
-for (let j = 0; j < 1000000000; j++) {
-    suma2 += 1;
-}
-console.timeEnd('bucle 2');
+//Asi funciona con funciones asincronas
 
-console.time('asincrono');
-console.log('Empieza el proceso async')
-asincrona()
-    .then(() => {
-        console.timeEnd('asincrono');
-    });
-
-console.timeEnd('todo');
+console.time("asincrono");
+console.log("Empieza el proceso async");
+asincrona().then((dta) => {
+  console.timeEnd("asincrono");
+});
 
 function asincrona() {
-    return new Promise( (resolve) => {
-        setTimeout(function () {
-            console.log('Termina el proceso asíncrono');
-            resolve();
-        }, 1000)
-    })
+  return new Promise((resolve) => {
+    setTimeout(function () {
+      console.log("Termina el proceso asíncrono");
+      resolve("hola");
+    }, 1000);
+  });
 }
